@@ -13,15 +13,10 @@ export type IPet = Type<typeof Pet.schema>;
 
 /**
  * Pet model represents the profile of a adoptable pet in the store.
- * 
- *   @property name: string | undefined;
- * 
+ *   @property name: string;
  *   @property species: Species;
- * 
  *   @property age: number;
- * 
  *   @property inssurancePolicy: string | undefined;
- * 
  *   @property description: string | undefined;
  */
 export class Pet extends Model {
