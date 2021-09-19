@@ -1,4 +1,5 @@
 import { DataTypes, Model, number, Schema, string, Type } from "../deps.ts";
+import { toDate } from "../utils/generics.ts";
 
 /**
  * Player model represents a sport player.
@@ -24,7 +25,8 @@ export class Player extends Model {
       length: 250,
     },
     birth_date: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
+      length: 24,
     },
     country_id: {
       type: DataTypes.INTEGER,
@@ -36,7 +38,7 @@ export class Player extends Model {
   static schema = {
     name: string.trim().normalize().between(3, 250).optional(),
     known_name: string.trim().normalize().between(3, 250).optional(),
-    birth_date: string.trim().normalize().optional(),
+    birth_date: string.trim().normalize().between(10, 24).optional().transform(val => toDate(val)),
     country_id: number.gt(0),
   };
   static validator = Schema(Player.schema).destruct();

@@ -5,20 +5,33 @@ import { Dictionary } from "../deps.ts";
 
 /**
  * Converts the first character of string to upper case.
- * @param string 
+ * @param str 
  * @returns 
  */
-export function upperFirst(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+export function upperFirst(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 /**
  * Converts the first character of string to lower case.
- * @param string 
+ * @param str 
  * @returns 
  */
- export function lowerFirst(string: string) {
-  return string.charAt(0).toLowerCase() + string.slice(1);
+ export function lowerFirst(str: string) {
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
+/**
+ * Converts a string to a Date.
+ * Returns undefined if the string cannot be converted to a valid date.
+ * @param str 
+ * @returns 
+ */
+export function toDate(str: string) {
+  const timestamp = Date.parse(str);
+  if (isNaN(timestamp) == false) {
+    return new Date(timestamp);
+  }
 }
 
 // COLLECTION
