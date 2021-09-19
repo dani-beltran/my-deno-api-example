@@ -2,8 +2,8 @@ import { DataTypes, Model, Schema, string, Type } from "../deps.ts";
 
 /**
  * Country model represents a country from the world.
- *   @property name: string;
- *   @property code: string;
+ * @property name: string;
+ * @property code: string;
  */
 export class Country extends Model {
   static table = "countries";
@@ -33,4 +33,4 @@ export class Country extends Model {
 /**
  * Interface for Country resource
  */
- export type ICountry = Type<typeof Country.schema>;
+ export type CountrySchema = Type<typeof Country.schema>;

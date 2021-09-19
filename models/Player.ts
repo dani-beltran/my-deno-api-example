@@ -2,10 +2,10 @@ import { DataTypes, Model, number, Schema, string, Type } from "../deps.ts";
 
 /**
  * Player model represents a sport player.
- *   @property name: string;
- *   @property known_name: string;
- *   @property birth_date: string;
- *   @property country_id: number;
+ * @property name: string;
+ * @property known_name: string;
+ * @property birth_date: string;
+ * @property country_id: number;
  */
 export class Player extends Model {
   static table = "players";
@@ -45,4 +45,4 @@ export class Player extends Model {
 /**
  * Interface for Pet resource
  */
- export type IPlayer = Type<typeof Player.schema>;
+ export type PlayerSchema = Type<typeof Player.schema>;
