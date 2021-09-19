@@ -8,6 +8,7 @@ import {
 } from "./deps.ts";
 import { loadRoutes } from "./routes/mod.ts";
 import { Pet } from "./models/Pet.ts";
+import { Player } from "./models/Player.ts";
 
 export class AppServer {
   public db: Database;
@@ -66,6 +67,7 @@ export class AppServer {
     // it is good practice to put them first
     this.db.link([
       Pet,
+      Player
     ]);
   }
 }
