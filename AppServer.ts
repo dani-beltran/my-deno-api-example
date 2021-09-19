@@ -39,7 +39,7 @@ export class AppServer {
 
   async run() {
     this.registedModels();
-    await this.db.sync();
+    await this.db.sync({drop: false});
     this.opineServer.use(json());
     loadRoutes(this.opineServer);
     this.httpServer = this.opineServer.listen(this.port, () => {
