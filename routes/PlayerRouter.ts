@@ -1,8 +1,12 @@
-import { Opine, Router } from "../deps.ts";
+import { Opine, pathJoin, Router } from "../deps.ts";
 import { PlayerController } from "../controllers/PlayerController.ts";
 
 export abstract class PlayerRouter {
-  static loadRoutes(app: Opine) {
+  /**
+   * Registers the routes for this resource in the app server.
+   * @param app 
+   */
+  static registerRoutes(app: Opine, basePath: string) {
     const router = new Router();
 
     router.post("/", PlayerController.addPlayer);
@@ -12,6 +16,7 @@ export abstract class PlayerRouter {
     router.patch("/:id", PlayerController.patchPlayer);
     router.delete("/:id", PlayerController.deletePlayer);
 
-    app.use("/players", router);
+    const path = pathJoin(basePath, 'players');
+    app.use(path, router);
   }
 }

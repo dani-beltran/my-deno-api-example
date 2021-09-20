@@ -1,16 +1,21 @@
-import { Opine } from "../deps.ts";
+import { Opine, pathJoin } from "../deps.ts";
 import { PetRouter } from "./PetRouter.ts";
 import { PlayerRouter } from "./PlayerRouter.ts";
 
-export function loadRoutes(app: Opine) {
-  loadOtherRoutes(app);
+/**
+ * Register the routes in the app server.
+ * @param app 
+ */
+export function registerRoutes(app: Opine, basePath = '') {
+  registerOtherRoutes(app, basePath);
   // Resources routes
-  PetRouter.loadRoutes(app);
-  PlayerRouter.loadRoutes(app);
+  PetRouter.registerRoutes(app, basePath);
+  PlayerRouter.registerRoutes(app, basePath);
 }
 
-function loadOtherRoutes(app: Opine) {
-  app.get("/health", (_req, res) => {
+function registerOtherRoutes(app: Opine, basePath: string) {
+  const healthPath = pathJoin(basePath, 'health');
+  app.get(healthPath, (_req, res) => {
     res.send("OK");
   });
 }
