@@ -87,5 +87,5 @@ that are wrapped in classes just for naming convinience.
 
 ### I generated a controller, service, router and model for a resource, but it doesn't work
 
-After generation, you need to add the router in /routes/mod.ts and the model
-in AppServer.ts registerModels function.
+After generation, you need to add the router in /routes/mod.ts registerRoutes 
+function and the model in /models/mod.ts registerModels function.
